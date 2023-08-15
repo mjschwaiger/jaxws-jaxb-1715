@@ -1,0 +1,4 @@
+rootProject.name = 'jaxws-jaxb-1715'
+include 'jaxws-api'
+include 'jaxws-server'
+include 'jaxws-client'

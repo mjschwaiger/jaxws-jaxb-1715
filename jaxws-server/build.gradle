@@ -1,0 +1,27 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'com.example.MyServer'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':jaxws-api')
+
+    implementation 'jakarta.xml.ws:jakarta.xml.ws-api:4.0.0'
+    implementation 'com.sun.xml.ws:jaxws-rt:4.0.1'
+
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
+    // implementation 'com.sun.xml.bind:jaxb-impl:4.0.3'
+    implementation('com.sun.xml.bind:jaxb-impl') {
+        version {
+            // strictly '4.0.2'
+            strictly '4.0.3'
+        }
+    }
+}
