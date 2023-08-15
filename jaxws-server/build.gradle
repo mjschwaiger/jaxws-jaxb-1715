@@ -18,7 +18,15 @@ dependencies {
 
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
     // implementation 'com.sun.xml.bind:jaxb-impl:4.0.3'
+    /*
     implementation('com.sun.xml.bind:jaxb-impl') {
+        version {
+            // strictly '4.0.2'
+            strictly '4.0.3'
+        }
+    }
+    */
+    implementation('org.glassfish.jaxb:jaxb-runtime') {
         version {
             // strictly '4.0.2'
             strictly '4.0.3'

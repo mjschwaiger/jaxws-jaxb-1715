@@ -18,10 +18,28 @@ dependencies {
 
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
     // implementation 'com.sun.xml.bind:jaxb-impl:4.0.3'
+    /*
     implementation('com.sun.xml.bind:jaxb-impl') {
         version {
-            strictly '4.0.2' // not working - if com.sun.xml.bind:jaxb-impl:4.0.3 is used on server
-            // strictly '4.0.3' // OK - if com.sun.xml.bind:jaxb-impl:4.0.3 is used on server
+            // not working - if com.sun.xml.bind:jaxb-impl:4.0.3 is used on server
+            // not working - if org.glassfish.jaxb:jaxb-runtime:4.0.3 is used on server
+            strictly '4.0.2'
+
+            // OK - if com.sun.xml.bind:jaxb-impl:4.0.3 is used on server
+            // OK - if org.glassfish.jaxb:jaxb-runtime:4.0.3 is used on server
+            // strictly '4.0.3'
+        }
+    }
+    */
+    implementation('org.glassfish.jaxb:jaxb-runtime') {
+        version {
+            // not working - if org.glassfish.jaxb:jaxb-runtime:4.0.3 is used on server
+            // not working - if com.sun.xml.bind:jaxb-impl:4.0.3 is used on server
+            strictly '4.0.2'
+
+            // OK - if org.glassfish.jaxb:jaxb-runtime:4.0.3 is used on server
+            // OK - if com.sun.xml.bind:jaxb-impl:4.0.3 is used on server
+            // strictly '4.0.3'
         }
     }
 }
