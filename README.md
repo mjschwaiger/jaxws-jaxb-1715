@@ -7,7 +7,7 @@ Reproduction:
 1. Start the server by running MyServer (using jaxb-impl/jaxb-runtime version 4.0.3, see jaxws-server\build.gradle)
 2. Wait until server is started
 3. Start the client by running MyClient (using jaxb-impl/jaxb-runtime version 4.0.2, see jaxws-client\build.gradle)
-4. Returned fault detail message: **null** :x: (should be myDetailMessage and not null)
+4. Returned fault detail message: **null** :x: (should be "myDetailMessage" and not null)
 
 Compatibility
 -------------
@@ -21,19 +21,19 @@ Can be reproduced using com.sun.xml.bind:jaxb-impl and/or org.glassfish.jaxb:jax
 
 Debug server
 ------------
-Set breakpoint in the following method and evaluate value of Packet:
+Set breakpoint in the following method and evaluate value of `Packet`:
 ```
 com.sun.xml.ws.server.sei.TieHandler.serializeResponse()
 ```
 
 Difference
 ----------
-* Packet in server jaxb-impl/jaxb-runtime 4.0.2:
+* Packet of server using jaxb-impl/jaxb-runtime 4.0.2:
 ```
 <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope"><faultcode>S:Server</faultcode><faultstring>myMessage</faultstring><detail><ns2:MyFault xmlns:ns2="http://example.org/"><detailMessage>myDetailMessage</detailMessage></ns2:MyFault></detail></S:Fault></S:Body></S:Envelope>
 ```
 
-* Packet in server using jaxb-impl/jaxb-runtime 4.0.3:
+* Packet of server using jaxb-impl/jaxb-runtime 4.0.3:
 ```
 <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope"><faultcode>S:Server</faultcode><faultstring>myMessage</faultstring><detail><ns2:MyFault xmlns:ns2="http://example.org/"><ns2:detailMessage>myDetailMessage</ns2:detailMessage></ns2:MyFault></detail></S:Fault></S:Body></S:Envelope>
 ```
